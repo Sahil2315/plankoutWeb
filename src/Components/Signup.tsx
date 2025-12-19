@@ -19,7 +19,18 @@ const Signup = ({mode, setMode}: {mode: string, setMode: (m: string) => void}) =
                     'password': password
                 })
             })
+
             let resp = await req.json()
+            if (!req.ok){
+                toast.error(resp.detail, {
+                    position: "top-center",
+                    style: {
+                        'fontSize': '16px',
+                        'color': 'red',
+                        'padding': '16px'
+                    }
+                })
+            }
             if(resp.success){
                 toast("Successful Registration")
                 setMode("login")

@@ -3,7 +3,7 @@ import { useState } from "react";
 import Loader from "./Loader";
 import { RiHome6Fill } from "react-icons/ri";
 import Tracker from "./Tracker";
-import WorkoutList from "./WorkoutList";
+import WorkoutList from "./WorkoutListSmall";
 
 export const Overlay = ({
   visible,

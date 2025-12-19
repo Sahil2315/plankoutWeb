@@ -1,14 +1,11 @@
 import { baseAPI } from "@/API"
-import { setUser } from "@/redSlices/userSlice"
 import { useState } from "react"
-import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
 const Login = ({mode, setMode}: {mode: string, setMode: (m: string) => void}) => {
   const [username, setUsername] = useState<string>("")
   const [password, setPassword] = useState<string>("")
-  let dispatch = useDispatch()
   const navigate = useNavigate()
   async function submitter(){
     if (username && password ){
@@ -26,8 +23,9 @@ const Login = ({mode, setMode}: {mode: string, setMode: (m: string) => void}) =>
         console.log(resp)
         if (resp.success){
             navigate("/home")
+            const token = resp.token
+            localStorage.setItem("userToken", token)
         }
-        dispatch(setUser(resp.userData))
     }
     else{
         toast("All Fields are required!")

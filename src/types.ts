@@ -1,15 +1,16 @@
 export type userDetails = {
   username: string,
+  userid: string
   daysForWorkout: string,
   level: string,
-  expYears: string,
-  expMonths: string,
+  expYears: number,
+  expMonths: number,
   gender: string,
   location: string,
   primaryConcern: string,
-  weight: string,
-  height: string,
-  age: string,
+  weight: number,
+  height: number,
+  age: number,
   specificAilment: string
 }
 

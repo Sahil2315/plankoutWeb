@@ -12,16 +12,16 @@ const WorkoutList = ({tVisible, tToggle, data, finished}: {tVisible: boolean, tT
   
   const today = new Date()
   return (
-    <div className={tVisible ? 'hidden' : `flex flex-row my-8 mx-4`}>
-      <div className="flex flex-col mr-6" >
-        <span className="text-[22px] font-semibold">{dayMap.get(today.getDay())}</span>
+    <div className={tVisible ? 'hidden' : `flex flex-row`}>
+      <div className="flex flex-col" >
+        <span className="text-[16px] font-semibold">{dayMap.get(today.getDay())}</span>
         { data.length > 0 ? 
           data.map((ex, ind) => {
             return(
-              <div className="text-[15px] flex flex-col mt-4" key={ind}>
-                <span className="text-[18px] font-semibold">{ex.exName}</span>
+              <div className="text-[11px] flex flex-col mt-2" key={ind}>
+                <span className="text-[14px] font-semibold">{ex.exName}</span>
                 <span className="mt-1">{ex.exSets} Sets - {ex.exReps} Reps (Or to Failure)</span>
-                <span>{ex.exWeight} (Or Your Current Max)</span>
+                <span>{ex.exWeight} (Or what you already lift)</span>
               </div>
             )
           }) :
@@ -36,9 +36,8 @@ const WorkoutList = ({tVisible, tToggle, data, finished}: {tVisible: boolean, tT
           START
         </button>
         <div className={finished ? `flex flex-col items-center` : 'hidden'}>
-          <span className="text-2xl">Workout Finished!</span>  
-          <span className="text-xl mt-4">Relax Now.</span>
-          <span className="text-xl mt-2">See you tomorrow.</span>
+          <span className="text-xl">Workout Finished!</span>  
+          <span className="text-lg mt-2">Relax Now.</span>
         </div>           
       </div>
     </div> 
